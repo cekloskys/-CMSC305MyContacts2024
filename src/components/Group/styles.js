@@ -9,20 +9,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderBottomWidth: 1,
     borderColor: 'lightgrey',
-    paddingBottom: 5,
+    paddingBottom: 10,
   },
   name: {
     fontSize: 18,
-    marginLeft: 10,
+    marginLeft: 15,
     flex: 1,
     flexWrap: 'wrap',
     fontWeight: 'bold',
+    textAlignVertical: 'center',
   },
-  description: {
+  color: {
     fontSize: 18,
-    marginLeft: 10,
     flex: 1,
     flexWrap: 'wrap',
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    textAlignVertical: 'center',
   },
 });
 

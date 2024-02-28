@@ -31,23 +31,12 @@ const styles = StyleSheet.create({
     padding: 15,
     width: '100%',
   },
-  date: {
+  name: {
     fontSize: 16,
+    marginBottom: 15,
     borderBottomWidth: 1.0,
+    color: 'black',
     borderColor: 'lightgrey',
-  },
-  dateButton: {
-    backgroundColor: 'black',
-    height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginVertical: 10,
-    borderRadius: 30,
-  },
-  dateButtonText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
   },
   dropdownBtnStyle: {
     width: '100%',
