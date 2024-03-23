@@ -5,6 +5,10 @@ import HomeScreen from '../screens/Home';
 import TabNavigator from './TabNavigator';
 import AddContact from '../screens/AddContact';
 import AddGroupScreen from '../screens/AddGroup';
+import ExistingContactScreen from '../screens/ExistingContact';
+import ExistingGroupScreen from '../screens/ExistingGroup';
+import AddContactToGroupScreen from '../screens/AddContactToGroup';
+import ViewContactsInGroupScreen from '../screens/ViewContactsInGroup';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +24,10 @@ const Router = props => {
         <Stack.Screen name={'Go To Contacts!'} component={TabNavigator}/>
         <Stack.Screen name={'Add Contact'} component={AddContact}/>
         <Stack.Screen name={'Add Group'} component={AddGroupScreen}/>
+        <Stack.Screen name={'Existing Contact'} component={ExistingContactScreen}/>
+        <Stack.Screen name={'Existing Group'} component={ExistingGroupScreen}/>
+        <Stack.Screen name={'Add Contact To Group'} component={AddContactToGroupScreen}/>
+        <Stack.Screen name={'View Contacts In Group'} component={ViewContactsInGroupScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

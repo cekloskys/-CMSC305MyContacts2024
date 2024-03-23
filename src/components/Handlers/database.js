@@ -5,6 +5,7 @@ import { openDatabase } from "react-native-sqlite-storage";
 const myContactsDB = openDatabase({name: 'MyContacts.db'});
 const contactsTableName = 'contacts';
 const groupsTableName = 'groups';
+const groupContactsTableName = 'group_contacts';
 
 module.exports = {
     // declare function that will create the contacts table
@@ -91,6 +92,50 @@ module.exports = {
                 },
                 error => {
                     console.log('Error adding group ' + error.message);
+                },
+            );
+        });
+    },
+
+    // declare function that will create group_contacts table
+    createGroupContactsTable: async function () {
+        // declare transaction that will execute SQL
+        (await myContactsDB).transaction(txn => {
+            // execute the SQL
+            txn.executeSql(
+                `CREATE TABLE IF NOT EXISTS ${groupContactsTableName}(
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    contact_id INTEGER,
+                    group_id INTEGER
+                );`,
+                // arguments passed when using SQL prepared statements
+                [],
+                // callback functions to handle results
+                () => {
+                    console.log('Group contacts table created successfully.');
+                },
+                error => {
+                    console.log('Error creating group contacts table ' + error.message);
+                },
+            );
+        });
+    },
+
+    // declare function that will insert a row of data into the group contacts table
+    addGroupContact: async function (contact_id, group_id) {
+        // declare transaction that will execute the SQL
+        (await myContactsDB).transaction(txn => {
+            // execute SQL
+            txn.executeSql(
+                `INSERT INTO ${groupContactsTableName} (contact_id, group_id) VALUES (${contact_id}, ${group_id})`,
+                // arguments passed when using SQL prepared statements
+                [],
+                // callback functions to handle results
+                () => {
+                    console.log("Group contact added successfully.");
+                },
+                error => {
+                    console.log('Error adding group contact ' + error.message);
                 },
             );
         });

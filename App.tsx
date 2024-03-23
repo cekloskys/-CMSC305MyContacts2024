@@ -23,6 +23,11 @@ const App: () => Node = () => {
   } catch (error) {
     console.log('Failed to create groups table ' + error);
   }
+  try {
+    db.createGroupContactsTable();
+  } catch (error) {
+    console.log('Failed to create group contacts table ' + error);
+  }
   return <Router />;
 };
 
